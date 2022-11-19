@@ -6,8 +6,8 @@ from django.http import HttpResponse
 
 def login(request):
     user_data = {
-        'username': 'python',
-        'password': 'django'
+        'username': 'jjs',
+        'password': 'jjs'
     }
 
     if (request.method == 'GET'):
@@ -28,7 +28,7 @@ def login(request):
 
         if (password != user_data['password']):
             return HttpResponse('유저 비밀번호가 올바르지 않습니다.')
-        
+
         return HttpResponse('로그인 성공!')
 
 
