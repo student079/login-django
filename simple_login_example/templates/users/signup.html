@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>로그인 페이지</title>
+    <title>회원가입</title>
   </head>
   <body>
-    <header>로그인 페이지</header>
+    <header>회원가입 페이지</header>
     <form method="POST">
       {% csrf_token %}
       <label for="username">아이디</label>
@@ -16,8 +16,10 @@
       <input type="password" name="password" id="password" />
       <input type="submit" />
     </form>
-    {% if method == 'POST' %} {% if not is_valid %}
-    <h1 style="color: red">로그인에 실패</h1>
-    {% endif %} {% endif %}
+    {% if blank %}
+    <span style="color: red">유저 아이디 혹은 비밀번호를 입력해주세요</span>
+    {% endif %} {% if exist %}
+    <span style="color: red">유저 아이디가 이미 존재합니다.</span>
+    {% endif %}
   </body>
 </html>
